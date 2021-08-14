@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  $(function() {
+
+    var move = false;
+
+    $(document).mousemove(function(e){
+      if (move) {
+        $('.dragger').offset({
+          top: e.pageY - 100,
+          left: e.pageX -100
+        });
+      }
+    });
+
+    $('.dragger').mousedown(function(e){
+      move = true;
+    });
+
+    $(document).mouseup(function(e){
+      move = false;
+    });
+
+  });
+
+  </script>
+	<meta charset="UTF-8">
+	<title>Drag and Drop</title>
+  <style>
+    body {
+    	font-family: Verdana, Arial, sans-serif;
+    	font-size: 100%;
+    	color: #000;
+    	background: #fff;
+    }
+    
+    #wrapper {
+    	margin: 20px auto;
+    	width: 80%;
+    	background: #cfebca;
+    	padding-bottom: 30px;
+    }
+    
+    .dragger {
+    	width: 200px;
+    	height: 200px;
+    	background: #036;
+    	margin: 0 0 20px 20px;
+    }
+    
+    .hand {
+    	cursor: pointer;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="wrapper">
+
+  <h1>Déplacer une DIV</h1>
+
+  <p>Cliquer et rester appuyé tout en bougeant la souris</p>
+
+  <div class="dragger hand"></div>
+
+  
+
+</div>
+</body>
+</html>
