@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" scr="jquery-min.js"></script>
+	<meta charset="UTF-8">
+	<title>Animation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  $(function() {
+
+    var move = false;
+
+    $(document).mousemove(function(e){
+      if (move) {
+        $('#rocket').offset({
+          top: e.pageY - 100,
+          left: e.pageX -100
+        });
+      }
+    });
+
+    $('#rocket').mousedown(function(e){
+      move = true;
+    });
+
+    $(document).mouseup(function(e){
+      move = false;
+    });
+
+  });
+
+$(document).ready(function(){
+
+  window.onkeydown = function(e) {
+      var key = e.keyCode || e.which;
+      switch (key) {
+          case 37:
+          //Move left
+          $('#rocket').animate({'left' :'-=50px' });
+          break;
+      case 39:
+          //-Move right
+          $('#rocket').animate({'left' :'+=50px' });
+          break;
+      case 38:
+          //-Move up
+          $('#rocket').animate({'top' :'-=50px' });
+          break;
+      case 40:
+          //-Move down
+          $('#rocket').animate({'top' :'+=50px' });
+          break;
+      default:
+          break;
+        } 
+    };
+});
+
+  </script>
+
+	<style>
+    body {
+    	font-family: Verdana, Arial, sans-serif;
+    	font-size: 100%;
+    	color: #000;
+    	background: #fff;
+    }
+    
+    #wrapper {
+    	margin: 20px auto;
+    	width: 80%;
+    	background: #cfebca;
+    	padding-bottom: 30px;
+    }
+
+    #rocket {
+        position: relative;
+        left: 50%;
+        top: 0;
+    }
+	</style>
+</head>
+
+<body>
+  <div id="wrapper">
+
+    <h1>Animation : Utiliser les touche haut, bas, droite et gauche pour déplace la fusée !</h1>
+    
+    
+      
+    <img id="rocket" src="rocket.png">
+    
+    
+  
+  </div>
+</body>
+</html>
